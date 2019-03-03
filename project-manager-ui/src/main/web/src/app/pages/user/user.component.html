@@ -8,10 +8,10 @@
 			<div class="col-md-2 col-sm-12 col-xs-12">
 				<label for="fname" class="control-label label-font">First Name:</label>
 			</div>
-			<div class="col-md-3 col-sm-12 col-xs-12">
+			<div class="col-md-4 col-sm-12 col-xs-12">
 				<input #fname="ngModel" [(ngModel)]="user.fname" name="fname" id ="fname" class="form-control" type="text" pattern = "^[a-zA-Z]+$" required aria-describedby="fnameErrorDiv">
 			</div>
-			<div class="col-md-4 col-sm-12 col-xs-12">
+			<div class="col-md-3 col-sm-12 col-xs-12">
         	<div role="alert" aria-live="assertive" id="fnameErrorDiv" class="error-message-cmn-cls" *ngIf="fname.errors && (fname.dirty || fname.touched)">
 					<span class="fa fa-times"> </span>
 					<span class="error-msg" *ngIf="fname.errors.required">Required field</span>
@@ -25,11 +25,11 @@
 			<div class="col-md-2 col-sm-12 col-xs-12">
 				<label for="lname" class="control-label label-font">Last Name:</label>
 			</div>
-			<div class="col-md-3 col-sm-12 col-xs-12">
+			<div class="col-md-4 col-sm-12 col-xs-12">
 				<input #lname="ngModel" [(ngModel)]="user.lname" name="lname" id ="lname" class="form-control" type="text" pattern = "^[a-zA-Z]+$" required aria-describedby="lnameErrorDiv">			
 				
 			</div>
-			   <div class="col-md-4 col-sm-12 col-xs-12">
+			   <div class="col-md-3 col-sm-12 col-xs-12">
               <div role="alert" aria-live="assertive" id="lnameErrorDiv" class="error-message-cmn-cls" *ngIf="lname.errors && (lname.dirty || lname.touched)">
                 <span class="fa fa-times"> </span>
                 <span class="error-msg" *ngIf="lname.errors.required">Required field</span>
@@ -43,10 +43,10 @@
 			<div class="col-md-2 col-sm-12 col-xs-12">
 				<label for="empId" class="control-label label-font">Employee ID:</label>
 			</div>
-			<div class="col-md-3 col-sm-12 col-xs-12">
+			<div class="col-md-4 col-sm-12 col-xs-12">
 				<input #empId="ngModel" [(ngModel)]="user.empId" name="empId" id ="empId" class="form-control" type="text" pattern="^[a-zA-Z0-9]+$" minlength="6" maxlength="6" required aria-describedby="empIdErrorDiv">
 			</div>
-      <div class="col-md-4 col-sm-12 col-xs-12">
+      <div class="col-md-3 col-sm-12 col-xs-12">
 	      <div role="alert" aria-live="assertive" id="empIdErrorDiv" class="error-message-cmn-cls" *ngIf="empId.errors && (empId.dirty || empId.touched)">
 					<span class="fa fa-times"> </span>
 					<span class="error-msg" *ngIf="empId.errors.required">Required field</span>
@@ -57,8 +57,7 @@
 
 		<div class="row margin-top-10">
       <div class="col-md-3 col-sm-12 col-xs-12"></div>
-			<div class="col-md-1 col-sm-12 col-xs-12"></div>
-			<div class="col-md-4 col-sm-12 col-xs-12 text-align-right">
+			<div class="col-md-6 col-sm-12 col-xs-12 text-align-right">
 				<button type="submit" class="btn btn-success margin-right-15" [disabled]="!addUserForm.form.valid && (addUserForm.form.touched || addUserForm.form.untouched)" [hidden]="!isAdd">Add</button>
 				<button type="submit" class="btn btn-success margin-right-15" [disabled]="!addUserForm.form.valid && (addUserForm.form.touched || addUserForm.form.untouched)" [hidden]="isAdd">Update</button>
 				<button type="button" class="btn btn-primary" (click)="reset()">Reset</button>
@@ -81,7 +80,7 @@
 		</div>
 		<div class="col-md-4 col-sm-12 col-xs-12">
 			<div class="row">
-				<div class="col-md-3 col-sm-12 col-xs-12">
+				<div class="col-md-1 col-sm-12 col-xs-12">
 					<label for="sortUser" class="control-label label-font">Sort By:</label>
 				</div>
 				<div class="col-md-9 col-sm-12 col-xs-12">			

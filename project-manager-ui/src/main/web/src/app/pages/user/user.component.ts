@@ -17,7 +17,7 @@ export class UserComponent implements OnInit {
     //screenLoader: boolean;
     order: number = 1;  
     fieldName: string = '';
-    errorReason:string ="Please check back-end connectivity"
+    errorReason:string ="Please check back-end connectivity!!!";
     @ViewChild('addUserForm') addUserForm: NgForm;
  
   constructor(public projectManagerService: ProjectManagerService, public router: Router) { }
