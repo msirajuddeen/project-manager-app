@@ -1,36 +1,36 @@
 <!--<pm-loading class="text-align-center" [hidden]="!screenLoader"></pm-loading>-->
 <div [hidden]='displayError'>
     <div class="row margin-top-10 margin-bottom-10">
-      <div class="col-md-3 col-sm-12 col-xs-12"></div>
-      <div class="col-md-6 col-sm-12 col-xs-12">
+      <div class="col-md-1 col-sm-12 col-xs-12"></div>
+      <div class="col-md-9 col-sm-12 col-xs-12">
         <B>Edit Task</B>
       </div>
-      <div class="col-md-3 col-sm-12 col-xs-12"></div>
+      <div class="col-md-2 col-sm-12 col-xs-12"></div>
     </div>
     <form #updateTaskForm = "ngForm" method="post" (ngSubmit)="updateTask(task)" novalidate>
 		<div class="row margin-top-10">
-      <div class="col-md-3 col-sm-12 col-xs-12"></div>
+      <div class="col-md-1 col-sm-12 col-xs-12"></div>
 			<div class="col-md-2 col-sm-12 col-xs-12">
 				<label for="projectName" class="control-label label-font">Project:</label>
 			</div>
-			<div class="col-md-3 col-sm-12 col-xs-12">
+			<div class="col-md-6 col-sm-12 col-xs-12">
 				<input #projectName="ngModel" [(ngModel)]="task.projectName" name="projectName" id ="projectName" class="form-control" type="text" readonly required/>
 			</div>
 			<div class="col-md-1 col-sm-12 col-xs-12 padding-right-neutralize">
 				<button type="button" class="btn btn-primary" disabled (click)="getProject()">Search</button>
 			</div>			
-			<div class="col-md-3 col-sm-12 col-xs-12"></div>
+			<div class="col-md-2 col-sm-12 col-xs-12"></div>
 		</div>
 
 		<div class="row margin-top-10">
-      <div class="col-md-3 col-sm-12 col-xs-12"></div>
+      <div class="col-md-1 col-sm-12 col-xs-12"></div>
 			<div class="col-md-2 col-sm-12 col-xs-12">
 				<label for="taskName" class="control-label label-font">Task:</label>
 			</div>
-			<div class="col-md-4 col-sm-12 col-xs-12">
+			<div class="col-md-7 col-sm-12 col-xs-12">
 				<input #taskName="ngModel" [(ngModel)]="task.task" name="taskName" id ="taskName" class="form-control" type="text" pattern = "^[a-zA-Z\s]+$" required aria-describedby="taskErrorDiv">
 		</div>
-			<div class="col-md-3 col-sm-12 col-xs-12">
+			<div class="col-md-2 col-sm-12 col-xs-12">
         <div role="alert" aria-live="assertive" id="taskErrorDiv" class="error-message-cmn-cls" *ngIf="taskName.errors && (taskName.dirty || taskName.touched)">
 					<span class="fa fa-times"> </span>
 					<span class="error-msg" *ngIf="taskName.errors.required">Required field</span>
@@ -39,83 +39,80 @@
       </div>
 		</div>
 		<div class="row margin-top-10">
-			<div class="col-md-3 col-sm-12 col-xs-12"></div>
-			<div class="col-md-6 col-sm-12 col-xs-12">
+			<div class="col-md-1 col-sm-12 col-xs-12"></div>
+			<div class="col-md-9 col-sm-12 col-xs-12">
 				<input #isParentTask="ngModel" [(ngModel)]="task.isParentTask" name="isParentTask" id ="isParentTask" class="margin-top-12" disabled type="checkbox">Parent Task
 			</div>
-			<div class="col-md-3 col-sm-12 col-xs-12"></div>
+			<div class="col-md-2 col-sm-12 col-xs-12"></div>
 		</div>
 
 		<div class="row margin-top-10">
-      <div class="col-md-3 col-sm-12 col-xs-12"></div>
+      <div class="col-md-1 col-sm-12 col-xs-12"></div>
 			<div class="col-md-2 col-sm-12 col-xs-12">
 				<label for="priority" class="control-label label-font">Priority:</label>     
 			</div>
-			<div class="col-md-4 col-sm-12 col-xs-12">
+			<div class="col-md-7 col-sm-12 col-xs-12">
 				{{task.priority}} <input type="range" [(ngModel)]="task.priority" id="priority" name="priority" min="0" max="30" class="slider" [disabled]="task.isParentTask">
 			</div>
-			<div class="col-md-3 col-sm-12 col-xs-12"></div>
+			<div class="col-md-2 col-sm-12 col-xs-12"></div>
 		</div>
 
 		<div class="row margin-top-10">
-       <div class="col-md-3 col-sm-12 col-xs-12"></div>
+       <div class="col-md-1 col-sm-12 col-xs-12"></div>
 			<div class="col-md-2 col-sm-12 col-xs-12">
 				<label for="parentTask" class="control-label label-font">Parent Task:</label>
 			</div>
-			<div class="col-md-3 col-sm-12 col-xs-12">
+			<div class="col-md-6 col-sm-12 col-xs-12">
 				<input #parentTask="ngModel" [(ngModel)]="task.parentTaskName" name="parentTask" id ="parentTask" class="margin-bottom-10 form-control" type="text" readonly [disabled]="task.isParentTask">
 			</div>
 			<div class="col-md-1 col-sm-12 col-xs-12 padding-right-neutralize">
 				<button type="button" class="btn btn-primary" disabled (click)="getParentTask()">Search</button>
 			</div>
-			<div class="col-md-3 col-sm-12 col-xs-12"></div>
+			<div class="col-md-2 col-sm-12 col-xs-12"></div>
 		</div>
 
 		<div class="row margin-top-10">
-      <div class="col-md-3 col-sm-12 col-xs-12"></div>
-			<div class="col-md-1 col-sm-12 col-xs-12">
-				<label for="startDate" class="control-label label-font">Start Date:</label>     
+            <div class="col-md-1 col-sm-12 col-xs-12"></div>
+			<div class="col-md-3 col-sm-12 col-xs-12">
+				<label for="startDate" class="control-label label-font">Start Date and End Date:</label>     
 			</div>
-			<div class="col-md-2 col-sm-12 col-xs-12">
+			<div class="col-md-3 col-sm-12 col-xs-12">
 				<input #startDate="ngModel" [(ngModel)]="task.startDate" name="startDate" id ="startDate" class="form-control" min="{{minDate | date:'yyyy-MM-dd'}}" type="date" required [disabled]="task.isParentTask">
 			</div>
-			<div class="col-md-1 col-sm-12 col-xs-12">
-				<label for="endDate" class="control-label label-font">End Date:</label>     
-			</div>
-			<div class="col-md-2 col-sm-12 col-xs-12">
+			<div class="col-md-3 col-sm-12 col-xs-12">
 				<input #endDate="ngModel" [(ngModel)]="task.endDate" name="endDate" id ="endDate" class="form-control" min="{{minDate | date:'yyyy-MM-dd'}}" type="date" required [disabled]="task.isParentTask">
 			</div>
 			<div class="col-md-3 col-sm-12 col-xs-12"></div>
 		</div>
 
 		<div class="row margin-top-10">
-       <div class="col-md-3 col-sm-12 col-xs-12"></div>
+       <div class="col-md-1 col-sm-12 col-xs-12"></div>
 			<div class="col-md-2 col-sm-12 col-xs-12">
 				<label for="user" class="control-label label-font">User:</label>
 			</div>
-			<div class="col-md-3 col-sm-12 col-xs-12">
+			<div class="col-md-7 col-sm-12 col-xs-12">
 				<input #user="ngModel" [(ngModel)]="userName" name="user" id ="user" class="margin-bottom-10 form-control" type="text" readonly required/>
 			</div>
 			<div class="col-md-1 col-sm-12 col-xs-12 padding-right-neutralize">
 				<button type="button" class="btn btn-primary" disabled (click)="getUser()">Search</button>
 			</div>
-			<div class="col-md-3 col-sm-12 col-xs-12"></div>
+			<div class="col-md-2 col-sm-12 col-xs-12"></div>
 		</div>
 
 		<div class="row margin-top-20">
-			<div class="col-md-3 col-sm-12 col-xs-12"></div>
-			<div class="col-md-6 col-sm-12 col-xs-12 text-align-right">
+			<div class="col-md-1 col-sm-12 col-xs-12"></div>
+			<div class="col-md-9 col-sm-12 col-xs-12 text-align-right">
 				<button type="submit" class="btn btn-success task-add-button">Update Task</button>
 				<button type="button" class="btn-outline-primary task-add-button margin-left-20" (click)="reset()">Reset</button>
 			</div>
-			<div class="col-md-3 col-sm-12 col-xs-12"></div>
+			<div class="col-md-2 col-sm-12 col-xs-12"></div>
 		</div>
 		<div class="row margin-top-10 *ngIf='isError'">
-			<div class="col-md-3 col-sm-12 col-xs-12"></div>
-			<div class="col-md-6 col-sm-12 col-xs-12 error-msg">
+			<div class="col-md-1 col-sm-12 col-xs-12"></div>
+			<div class="col-md-9 col-sm-12 col-xs-12 error-msg">
 				{{errorMessage}}
 			</div>
-			<div class="col-md-3 col-sm-12 col-xs-12"></div>
+			<div class="col-md-2 col-sm-12 col-xs-12"></div>
 		</div>	
 	</form>
 	
