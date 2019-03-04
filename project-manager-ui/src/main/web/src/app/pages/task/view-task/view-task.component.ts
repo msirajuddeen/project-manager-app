@@ -81,10 +81,10 @@ export class ViewTaskComponent implements OnInit {
         this.getTask();
     }
 
-    /*editTask(task: any) {
+    editTask(task: any) {
         this.projectManagerService.task = task;
         this.router.navigate(['/editTask']);
-    }*/
+    }
 
     endTask(task: any) {
         this.screenLoader = true;

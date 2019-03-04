@@ -11,21 +11,21 @@
 					<input #project="ngModel" [(ngModel)]="projectName" name="project" id ="project" class="margin-top-12 margin-bottom-10 form-control" type="text" readonly/>
 				</div>	
 				<div class="col-md-3 col-sm-12 col-xs-12">
-					<button type="button" class="btn btn-default margin-bottom-10" (click)="getProject()">Search</button>
+					<button type="button" class="btn btn-primary margin-bottom-10" (click)="getProject()">Search</button>
 				</div>
 			</div>
 		</div>
 
 		<div class="col-md-5 col-sm-12 col-xs-12">
 			<div class="row">
-				<div class="col-md-2 col-sm-12 col-xs-12">
+				<div class="col-md-3 col-sm-12 col-xs-12">
 					<label for="sortTask" class="control-label label-font margin-bottom-10">Sort Task By:</label>
 				</div>
-				<div class="col-md-10 col-sm-12 col-xs-12">
-					<button type="button" class="btn margin-bottom-10 mx-1" (click)="sortTask('startDate')">Start Date</button>
-					<button type="button" class="btn margin-bottom-10 mx-1" (click)="sortTask('endDate')">End Date</button>
-					<button type="button" class="btn margin-bottom-10 mx-1" (click)="sortTask('priority')">Priority</button>
-					<button type="button" class="btn margin-bottom-10 mx-1" (click)="sortTask('status')">Completed</button>
+				<div class="col-md-9 col-sm-12 col-xs-12">
+					<button type="button" class="btn btn-outline-secondary margin-bottom-10 mx-1" (click)="sortTask('startDate')">Start Date</button>
+					<button type="button" class="btn btn-outline-secondary margin-bottom-10 mx-1" (click)="sortTask('endDate')">End Date</button>
+					<button type="button" class="btn btn-outline-secondary margin-bottom-10 mx-1" (click)="sortTask('priority')">Priority</button>
+					<button type="button" class="btn btn-outline-secondary margin-bottom-10 mx-1" (click)="sortTask('status')">Completed</button>
 				</div>
 			</div>
 		</div>        
@@ -73,8 +73,8 @@
 							</div>
 						</div>
 						<div class="col-md-4 col-sm-12 col-xs-12">
-							<button type="button" class="btn btn-primary margin-bottom-10 mx-1" [disabled]="task.status == 'COMPLETED'" (click)="editTask(task)">Edit</button>
-							<button type="button" class="btn btn-primary margin-bottom-10 mx-1" [disabled]="task.status == 'COMPLETED'" (click)="endTask(task)">End Task</button>
+							<button type="button" class="btn btn-success margin-bottom-10 mx-1" [disabled]="task.status == 'COMPLETED'" (click)="editTask(task)">Edit</button>
+							<button type="button" class="btn btn-success margin-bottom-10 mx-1" [disabled]="task.status == 'COMPLETED'" (click)="endTask(task)">End Task</button>
 						</div>
 					</div>					
 				</div>				

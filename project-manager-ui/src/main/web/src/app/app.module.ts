@@ -12,6 +12,7 @@ import { EditTaskComponent } from './pages/task/edit-task/edit-task.component';
 import { ProjectManagerService } from './shared/project-manager-service';
 import { SortFilterPipe } from './shared/sort-pipe';
 import { SearchFilter } from './shared/search-filter';
+import { DatePipe } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,7 @@ import { SearchFilter } from './shared/search-filter';
     FormsModule,
     HttpClientModule
   ],
-  providers: [ProjectManagerService],
+  providers: [ProjectManagerService,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

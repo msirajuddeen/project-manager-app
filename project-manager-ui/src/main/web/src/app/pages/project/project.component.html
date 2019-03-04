@@ -2,7 +2,7 @@
 <div [hidden]='displayError'>
     <form #addProjectForm = "ngForm" method="post" (ngSubmit)="addProject(project)" novalidate>
 		<div class="row margin-top-10" [class.hasError]="projectName.errors && (projectName.dirty || projectName.touched)">
-      <div class="col-md-3 col-sm-12 col-xs-12"></div>
+            <div class="col-md-3 col-sm-12 col-xs-12"></div>
 			<div class="col-md-2 col-sm-12 col-xs-12">
 				<label for="projectName" class="control-label label-font">Project Name:</label>
 			</div>
@@ -11,7 +11,7 @@
 				
 			</div>
 			<div class="col-md-3 col-sm-12 col-xs-12">
-        <div role="alert" aria-live="assertive" id="projectNameErrorDiv" class="error-message-cmn-cls" *ngIf="projectName.errors && (projectName.dirty || projectName.touched)">
+                <div role="alert" aria-live="assertive" id="projectNameErrorDiv" class="error-message-cmn-cls" *ngIf="projectName.errors && (projectName.dirty || projectName.touched)">
 					<span class="fa fa-times"> </span>
 					<span class="error-msg" *ngIf="projectName.errors.required">Required field</span>
 					<span class="error-msg" *ngIf="projectName.errors.pattern">Please enter only characters.</span>
@@ -64,7 +64,7 @@
 				<input #manager="ngModel" [(ngModel)]="selectedUserName" name="manager" id ="manager" class="margin-bottom-10 form-control" type="text" pattern="^[0-9]$" required readonly/>
 			</div>
 			<div class="col-md-1 col-sm-12 col-xs-12 padding-right-neutralize">
-				<button type="button" class="btn btn-info" (click)="getManager()">Search</button>
+				<button type="button" class="btn btn-primary" (click)="getManager()">Search</button>
 			</div>			
 			<div class="col-md-3 col-sm-12 col-xs-12"></div>
 		</div>
@@ -74,7 +74,7 @@
 			<div class="col-md-6 col-sm-12 col-xs-12 text-align-right">
 				<button type="submit" class="btn btn-success margin-right-15" [hidden]="!isAdd">Add</button>
 				<button type="submit" class="btn btn-success margin-right-15" [hidden]="isAdd">Update</button>
-				<button type="button" class="btn btn-primary" (click)="reset()">Reset</button>
+				<button type="button" class="btn btn-outline-primary" (click)="reset()">Reset</button>
 			</div>
 			<div class="col-md-3 col-sm-12 col-xs-12"></div>
 		</div>
@@ -94,33 +94,33 @@
 		<div class="col-md-3 col-sm-12 col-xs-12"></div>
 	</div>
 	
-	<!--<div class="row margin-top-5">
-		<div class="col-md-1 col-sm-12 col-xs-12"></div>
-		<div class="col-md-8 col-sm-12 col-xs-12">
+	<div class="row margin-top-5">
+		<div class="col-md-3 col-sm-12 col-xs-12"></div>
+		<div class="col-md-6 col-sm-12 col-xs-12">
 			<input #searchProjData="ngModel" [(ngModel)]="searchText" name="searchText" id ="searchText" class="form-control" type="text" pattern = "^[a-zA-Z\s]+$" required placeholder="Search..."/>
 		</div>
 		<div class="col-md-3 col-sm-12 col-xs-12"></div>
-	</div>-->
+	</div>
 
 	<div class="row margin-top-15">
 		<div class="col-md-3 col-sm-12 col-xs-12"></div>
-    <div class="col-md-2 col-sm-12 col-xs-12">
+        <!-- <div class="col-md-2 col-sm-12 col-xs-12">
 			<input #searchProjData="ngModel" [(ngModel)]="searchText" name="searchText" id ="searchText" class="form-control" type="text" pattern = "^[a-zA-Z\s]+$" required placeholder="Search..."/>
-		</div>
-		<div class="col-md-5 col-sm-12 col-xs-12">
+		</div>-->
+		<div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="row">
-				<div class="col-md-1 col-sm-12 col-xs-12">
-					<label for="sortProject" class="control-label label-font">Sort By:</label>
+				<div class="col-md-4 col-sm-12 col-xs-12">
+					<label for="sortProject" class="control-label label-font margin-top-5">Sort By:</label>
 				</div>
-				<div class="col-md-10 col-sm-12 col-xs-12">
-					<button type="button" class="btn margin-bottom-10 mx-1" (click)="sortProject('startDate')">Start Date</button>
-					<button type="button" class="btn margin-bottom-10 mx-1" (click)="sortProject('endDate')">End Date</button>
-					<button type="button" class="btn margin-bottom-10 mx-1" (click)="sortProject('priority')">Priority</button>
-					<button type="button" class="btn margin-bottom-10 mx-1" (click)="sortProject('noOfCompletedTask')">Completed</button>
+				<div class="col-md-8 col-sm-12 col-xs-12">
+					<button type="button" class="btn btn-outline-secondary margin-bottom-10 mx-1" (click)="sortProject('startDate')">Start Date</button>
+					<button type="button" class="btn btn-outline-secondary margin-bottom-10 mx-1" (click)="sortProject('endDate')">End Date</button>
+					<button type="button" class="btn btn-outline-secondary margin-bottom-10 mx-1" (click)="sortProject('priority')">Priority</button>
+					<button type="button" class="btn btn-outline-secondary margin-bottom-10 mx-1" (click)="sortProject('noOfCompletedTask')">Completed</button>
 				</div>
 			</div>
 		</div>
-		<div class="col-md-2 col-sm-12 col-xs-12"></div>
+		<div class="col-md-3 col-sm-12 col-xs-12"></div>
 	</div>
 
 	<div class="row">
