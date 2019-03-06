@@ -7,8 +7,7 @@ declare var jQuery:any;
 
 @Component({
   selector: 'app-project',
-  templateUrl: './project.component.html',
-  styleUrls: ['./project.component.css']
+  templateUrl: './project.component.html'
 })
 export class ProjectComponent implements OnInit {
 project: any = {};
@@ -17,7 +16,7 @@ project: any = {};
     searchText : string;
     inputParam: any;
     displayError: boolean = false;
-    //screenLoader: boolean;
+    screenLoader: boolean;
     isAdd: boolean;
     selectedUserName: any;
     selectedUserId: number;
@@ -36,29 +35,29 @@ project: any = {};
     }
 
     ngOnInit() {
-     // this.screenLoader = true;
+      this.screenLoader = true;
       this.isAdd = true;
       this.isError = false;
       this.errorMessage = '';
       this.project = {};
       this.selectedUserName = '';
       this.project.priority = 0;
-      //this.getProjectDetails();
-      //this.getUserDetails();
+      this.getProjectDetails();
+      this.getUserDetails();
     }
     getProjectDetails() {
         this.projectManagerService.getProject().subscribe(
           (data: any) => {
               if(null != data && undefined != data) {
                   this.projectList = data.projectVO;
-                  //this.screenLoader = false;
+                  this.screenLoader = false;
               } else {
-                //  this.screenLoader = false;
+                  this.screenLoader = false;
                   this.displayError = true;
               }
           },
           (err: any) => {
-             // this.screenLoader = false;
+              this.screenLoader = false;
               this.displayError = true;
           }    
         );
@@ -73,20 +72,20 @@ project: any = {};
                           this.userDetailsMap[this.userList[i].userId] = this.userList[i].fname + ', ' + this.userList[i].lname;
                       }
                   }
-                  //this.screenLoader = false;
+                  this.screenLoader = false;
               } else {
-                  //this.screenLoader = false;
+                  this.screenLoader = false;
                   this.displayError = true;
               }
           },
           (err: any) => {
-            //  this.screenLoader = false;
+              this.screenLoader = false;
               this.displayError = true;
           }    
         );
     }
     addProject(proj: any) {
-        //this.screenLoader = true;
+        this.screenLoader = true;
         if(!this.validateFields(proj)) {
             this.inputParam = {
                 "action" : this.isAdd ? 'ADD' : 'EDIT',
@@ -105,21 +104,21 @@ project: any = {};
                     if(null != data && undefined != data && null !== data.status && undefined !== data.status && 'Success' === data.status) {
                         this.getProjectDetails();
                         this.getUserDetails();
-                       // this.screenLoader = false;
+                        this.screenLoader = false;
                     } else {
-                       // this.screenLoader = false;
+                        this.screenLoader = false;
                         this.displayError = true;
                     }
                 },
                 (err: any) => {
-                   // this.screenLoader = false;
+                    this.screenLoader = false;
                     this.displayError = true;
                 }    
             );
             this.reset();
             this.router.navigate(['/addProject']);
         } else {
-            //this.screenLoader = false;
+            this.screenLoader = false;
         }
     }
 
@@ -149,14 +148,14 @@ project: any = {};
                 if(null != data && undefined != data && null !== data.status && undefined !== data.status && 'Success' === data.status) {
                     this.getProjectDetails();
                     this.getUserDetails();
-                    //this.screenLoader = false;
+                    this.screenLoader = false;
                 } else {
-                   // this.screenLoader = false;
+                    this.screenLoader = false;
                     this.displayError = true;
                 }
             },
             (err: any) => {
-               ///this.screenLoader = false;
+                this.screenLoader = false;
                 this.displayError = true;
             }    
         );

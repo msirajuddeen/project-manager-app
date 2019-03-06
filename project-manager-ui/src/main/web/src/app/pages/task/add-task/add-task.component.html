@@ -1,4 +1,4 @@
-<!--<pm-loading class="text-align-center" [hidden]="!screenLoader"></pm-loading>-->
+<app-page-loader class="text-align-center" [hidden]="!screenLoader"></app-page-loader>
 <div [hidden]='displayError'>
     <form #addTaskForm = "ngForm" method="post" (ngSubmit)="addTask(task)" novalidate>
 		<div class="row margin-top-10">

@@ -6,8 +6,7 @@ declare var jQuery:any;
 
 @Component({
   selector: 'app-view-task',
-  templateUrl: './view-task.component.html',
-  styleUrls: ['./view-task.component.css']
+  templateUrl: './view-task.component.html'
 })
 export class ViewTaskComponent implements OnInit {
     taskList: any = [];
@@ -30,7 +29,7 @@ export class ViewTaskComponent implements OnInit {
         this.projectName = '';
         this.taskList = [];
         this.inputParam = {};
-        //this.getProjectDetails();
+        this.getProjectDetails();
     }
     getProjectDetails() {
         this.projectManagerService.getProject().subscribe(

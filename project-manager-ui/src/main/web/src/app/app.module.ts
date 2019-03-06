@@ -13,6 +13,8 @@ import { ProjectManagerService } from './shared/project-manager-service';
 import { SortFilterPipe } from './shared/sort-pipe';
 import { SearchFilter } from './shared/search-filter';
 import { DatePipe } from '@angular/common';
+import { PageLoaderComponent } from './shared/page-loader/page-loader.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,9 @@ import { DatePipe } from '@angular/common';
     ViewTaskComponent,
     EditTaskComponent,
     SortFilterPipe,
-    SearchFilter
+    SearchFilter,
+    PageLoaderComponent,
+
   ],
   imports: [
     BrowserModule,

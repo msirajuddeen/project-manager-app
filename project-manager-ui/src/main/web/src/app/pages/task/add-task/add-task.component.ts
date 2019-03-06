@@ -7,8 +7,7 @@ declare var jQuery:any;
 
 @Component({
   selector: 'app-add-task',
-  templateUrl: './add-task.component.html',
-  styleUrls: ['./add-task.component.css']
+  templateUrl: './add-task.component.html'
 })
 export class AddTaskComponent implements OnInit {
 
@@ -41,23 +40,23 @@ export class AddTaskComponent implements OnInit {
         this.task.startDate = this.datepipe.transform(new Date(), 'yyyy-MM-dd');
         this.task.endDate = this.datepipe.transform(new Date().getTime() + (60*60*24*1000), 'yyyy-MM-dd');
         
-        //this.getUserDetails();
-       // this.getProjectDetails();
-       // this.getParentTaskDetails();
+       this.getUserDetails();
+       this.getProjectDetails();
+       this.getParentTaskDetails();
     }
      getUserDetails() {
         this.projectManagerService.getUser().subscribe(
           (data: any) => {
               if(null != data && undefined != data) {
                   this.userList = data.userVO;
-                  //this.screenLoader = false;
+                  this.screenLoader = false;
               } else {
-                  //this.screenLoader = false;
+                  this.screenLoader = false;
                   this.displayError = true;
               }
           },
           (err: any) => {
-             // this.screenLoader = false;
+              this.screenLoader = false;
               this.displayError = true;
           }    
         );
@@ -68,14 +67,14 @@ export class AddTaskComponent implements OnInit {
           (data: any) => {
               if(null != data && undefined != data) {
                   this.projectList = data.projectVO;
-                //  this.screenLoader = false;
+                  this.screenLoader = false;
               } else {
-                  //this.screenLoader = false;
+                  this.screenLoader = false;
                   this.displayError = true;
               }
           },
           (err: any) => {
-              //this.screenLoader = false;
+              this.screenLoader = false;
               this.displayError = true;
           }    
         );
@@ -86,14 +85,14 @@ export class AddTaskComponent implements OnInit {
           (data: any) => {
               if(null != data && undefined != data) {
                   this.parentTaskList = data.parentTaskVO;
-                 // this.screenLoader = false;
+                  this.screenLoader = false;
               } else {
-                  //this.screenLoader = false;
+                  this.screenLoader = false;
                   this.displayError = true;
               }
           },
           (err: any) => {
-             // this.screenLoader = false;
+              this.screenLoader = false;
               this.displayError = true;
           }    
         );
@@ -120,12 +119,12 @@ export class AddTaskComponent implements OnInit {
                             this.getParentTaskDetails();
                             this.screenLoader = false;
                         } else {
-                           // this.screenLoader = false;
+                            this.screenLoader = false;
                             this.displayError = true;
                         }
                     },
                     (err: any) => {
-                        //this.screenLoader = false;
+                        this.screenLoader = false;
                         this.displayError = true;
                     }    
                 );               
@@ -150,12 +149,12 @@ export class AddTaskComponent implements OnInit {
                             this.getParentTaskDetails();
                             this.screenLoader = false;
                         } else {
-                           // this.screenLoader = false;
+                            this.screenLoader = false;
                             this.displayError = true;
                         }
                     },
                     (err: any) => {
-                        //this.screenLoader = false;
+                        this.screenLoader = false;
                         this.displayError = true;
                     }    
                 );

@@ -1,4 +1,4 @@
-<!--<pm-loading class="text-align-center" [hidden]="!screenLoader"></pm-loading>-->
+<app-page-loader class="text-align-center" [hidden]="!screenLoader"></app-page-loader>
 <div [hidden]='displayError'>
     <form #addProjectForm = "ngForm" method="post" (ngSubmit)="addProject(project)" novalidate>
 		<div class="row margin-top-10" [class.hasError]="projectName.errors && (projectName.dirty || projectName.touched)">
@@ -161,8 +161,8 @@
 							</div>
 						</div>
 						<div class="col-md-2 col-sm-12 col-xs-12 margin-bottom-10 padding-left-neutralize">
-							<button type="button" class="btn btn-primary project-form-button" (click)="updateProject(proj)">Update</button>
-							<button type="button" class="btn btn-primary project-form-button" (click)="suspendProject(proj)">Suspend</button>
+							<button type="button" class="btn btn-primary margin-top-5 project-form-button" (click)="updateProject(proj)">Update</button>
+							<button type="button" class="btn btn-primary margin-top-5 project-form-button" (click)="suspendProject(proj)">Suspend</button>
 						</div>
 					</div>
 					<div class="row padding-right-neutralize">

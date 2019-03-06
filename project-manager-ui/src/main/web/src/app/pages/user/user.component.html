@@ -1,4 +1,4 @@
-<!--<pm-loading class="text-align-center" [hidden]="!displayError"></pm-loading>-->
+<app-page-loader class="text-align-center" [hidden]="!displayError"></app-page-loader>
 
 <div [hidden]='displayError'>
    
@@ -98,7 +98,8 @@
 		<div class="col-md-9 col-sm-12 col-xs-12">
 			<ul class="list-group " *ngIf='null != userList'>
 				<li *ngFor="let usr of userList | searchFilter : searchText : 'userDetails' | sortFilter : fieldName : 'userScreen'" class="list-group-item borderless margin-top-neg-10">
-					<div class="row">
+				
+					<div class="row" *ngIf="usr.status==='A'">
 						<div class="col-md-10 col-sm-12 col-xs-12">
 							<div class="row margin-top-10">
 								<div class="col-md-12 col-sm-12 col-xs-12 user-details-div">

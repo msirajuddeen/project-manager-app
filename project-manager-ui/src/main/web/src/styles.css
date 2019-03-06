@@ -291,3 +291,30 @@ li.borderless {
 .float-left {
     text-align: left;
 }
+
+
+/* page loader css starts*/
+
+.modal-backdropP{
+  position:fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  z-index:1040;
+  background-color:#000;
+  opacity:.3;
+  filter:alpha(opacity=30);
+}
+.modalP{
+  position:fixed;
+  top:50%;
+  left:50%;
+  z-index:1050;
+  overflow:auto;
+  width:280px;
+  margin:-14px 0 0 -140px;
+}
+
+
+/*page loader css ends here*/

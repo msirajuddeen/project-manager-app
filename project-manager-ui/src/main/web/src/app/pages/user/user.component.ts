@@ -4,8 +4,7 @@ import { NgForm, FormControl } from '@angular/forms';
 import { ProjectManagerService } from '../../shared/project-manager-service';
 @Component({
   selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  templateUrl: './user.component.html'
 })
 export class UserComponent implements OnInit {
     user: any = {};
@@ -14,7 +13,7 @@ export class UserComponent implements OnInit {
     isAdd: boolean;
     inputParam: any;
     displayError: boolean = false;
-    //screenLoader: boolean;
+    screenLoader: boolean;
     order: number = 1;  
     fieldName: string = '';
     errorReason:string ="Please check back-end connectivity!!!";
@@ -23,9 +22,9 @@ export class UserComponent implements OnInit {
   constructor(public projectManagerService: ProjectManagerService, public router: Router) { }
 
   ngOnInit() {
-       // this.screenLoader = true;
+        this.screenLoader = true;
         this.isAdd = true;
-       // this.getUserDetails();        
+        this.getUserDetails();        
     }
 
     getUserDetails() {
@@ -33,14 +32,15 @@ export class UserComponent implements OnInit {
           (data: any) => {
               if(null != data && undefined != data) {
                   this.userList = data.userVO;
-                 // this.screenLoader = false;
+                 
+                  this.screenLoader = false;
               } else {
-                 // this.screenLoader = false;
+                  this.screenLoader = false;
                   this.displayError = true;
               }
           },
           (err: any) => {
-              //this.screenLoader = false;
+              this.screenLoader = false;
               this.displayError = true;
           }    
         );
@@ -62,14 +62,14 @@ export class UserComponent implements OnInit {
             (data: any) => {
                 if((null != data && undefined != data) && (null != data.status && undefined != data.status) && 'Success' === data.status) {
                     this.getUserDetails();
-                   // this.screenLoader = false;
+                    this.screenLoader = false;
                 } else {
-                   // this.screenLoader = false;
+                    this.screenLoader = false;
                     this.displayError = true;
                 }
             },
             (err: any) => {
-               // this.screenLoader = false;
+                this.screenLoader = false;
                 this.displayError = true;
             }    
         );
@@ -84,7 +84,7 @@ export class UserComponent implements OnInit {
     }
 
     deleteUser(usr : any) {
-        //this.screenLoader = true;
+        this.screenLoader = true;
         this.inputParam = {
             "action" : "DELETE",
             "userVO" : usr
@@ -94,14 +94,14 @@ export class UserComponent implements OnInit {
             (data: any) => {
                 if(null != data && undefined != data && null !== data.status && undefined !== data.status && 'Success' === data.status) {
                     this.getUserDetails();
-                   // this.screenLoader = false;
+                    this.screenLoader = false;
                 } else {
-                   // this.screenLoader = false;
+                    this.screenLoader = false;
                     this.displayError = true;
                 }
             },
             (err: any) => {
-                //this.screenLoader = false;
+                this.screenLoader = false;
                 this.displayError = true;
             }    
         );

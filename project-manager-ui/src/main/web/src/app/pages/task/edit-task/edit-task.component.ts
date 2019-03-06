@@ -8,8 +8,7 @@ declare var jQuery:any;
 
 @Component({
   selector: 'app-edit-task',
-  templateUrl: './edit-task.component.html',
-  styleUrls: ['./edit-task.component.css']
+  templateUrl: './edit-task.component.html'
 })
 export class EditTaskComponent implements OnInit {
 
@@ -70,16 +69,17 @@ export class EditTaskComponent implements OnInit {
             this.projectManagerService.updateTask(this.inputParam).subscribe(
                 (data: any) => {
                     if(null != data && undefined != data && null !== data.status && undefined !== data.status && 'Success' === data.status) {
-                        this.reset();
+                       // this.reset();
+                        this.router.navigate(['/viewTask']);
                         this.screenLoader = false;
                     } else {
                         this.screenLoader = false;
-                       // this.displayError = true;
+                        this.displayError = true;
                     }
                 },
                 (err: any) => {
                     this.screenLoader = false;
-                   // this.displayError = true;
+                    this.displayError = true;
                 }    
             );
             this.isError = false;            
