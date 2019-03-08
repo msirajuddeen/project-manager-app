@@ -35,7 +35,6 @@ export class UserComponent implements OnInit {
           (data: any) => {
               if(null != data && undefined != data) {
                   this.userList = data.userVO;
-                 
                   this.screenLoader = false;
               } else {
                   this.screenLoader = false;
@@ -126,7 +125,6 @@ export class UserComponent implements OnInit {
     }
     
      submitModalPopup(){
-      console.log("submitModalPopup");
         jQuery("#submitModalWindowOpener").click();
     }
 

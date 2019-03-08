@@ -1,0 +1,12 @@
+{
+  "userVO": [
+    {
+      "userId": 1,
+      "fname": "Siraj",
+      "lname": "M",
+      "empId": "123456",
+      "status":"A"
+    }
+   ],
+    "status": "Success"
+}
