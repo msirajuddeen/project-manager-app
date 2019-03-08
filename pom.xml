@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.project.manager</groupId>
     <name>Project Manager Web Application</name>
-	<artifactId>project-manager-appn</artifactId>
+	<artifactId>project-manager-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
