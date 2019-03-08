@@ -8,7 +8,7 @@
 	
 	<parent>
 		<groupId>com.project.manager</groupId>
-		<artifactId>project-manager-app</artifactId>
+		<artifactId>project-manager-appn</artifactId>
 		<version>0.0.1-SNAPSHOT</version>	
 	</parent>
 
