@@ -23,6 +23,8 @@ export class EditTaskComponent implements OnInit {
     endDt: any;
     minDate: Date = new Date();
     errorReason:string ="Please check back-end connectivity!!!";
+    modalHeading: string;
+    modalBody: string;
     @ViewChild('updateTaskForm') updateTaskForm: NgForm;
 
     constructor (public projectManagerService: ProjectManagerService, public router: Router, private datepipe: DatePipe) {
@@ -69,12 +71,14 @@ export class EditTaskComponent implements OnInit {
             this.projectManagerService.updateTask(this.inputParam).subscribe(
                 (data: any) => {
                     if(null != data && undefined != data && null !== data.status && undefined !== data.status && 'Success' === data.status) {
-                       // this.reset();
-                        this.router.navigate(['/viewTask']);
-                        this.screenLoader = false;
+                     this.screenLoader = false;
+	                this.router.navigate(['/viewTask']);
                     } else {
-                        this.screenLoader = false;
-                        this.displayError = true;
+                       this.modalHeading="Failure";
+                       this.modalBody="Sorry ! Unable to update the task";
+                       this.submitModalPopup();
+                       this.screenLoader = false;
+                       this.displayError = true;
                     }
                 },
                 (err: any) => {
@@ -82,12 +86,18 @@ export class EditTaskComponent implements OnInit {
                     this.displayError = true;
                 }    
             );
+           // this.reset();
+           // this.router.navigate(['/viewTask']);
             this.isError = false;            
         } else {
             this.screenLoader = false;
         }
     }
 
+    submitModalPopup(){
+         console.log("submitModalPopup");
+        jQuery("#submitModalWindowOpener").click();
+    }
     validateFields(task: any) {
         this.isError = false;
         if(null !==task && undefined !== task) {

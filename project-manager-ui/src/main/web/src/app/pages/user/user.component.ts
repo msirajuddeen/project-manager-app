@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
 import { NgForm, FormControl } from '@angular/forms';
 import { ProjectManagerService } from '../../shared/project-manager-service';
+declare var jQuery:any;
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html'
@@ -17,6 +18,8 @@ export class UserComponent implements OnInit {
     order: number = 1;  
     fieldName: string = '';
     errorReason:string ="Please check back-end connectivity!!!";
+    modalHeading: string;
+    modalBody: string;
     @ViewChild('addUserForm') addUserForm: NgForm;
  
   constructor(public projectManagerService: ProjectManagerService, public router: Router) { }
@@ -61,9 +64,15 @@ export class UserComponent implements OnInit {
         this.projectManagerService.updateUser(this.inputParam).subscribe(
             (data: any) => {
                 if((null != data && undefined != data) && (null != data.status && undefined != data.status) && 'Success' === data.status) {
+                     this.modalHeading="Success";
+                     this.modalBody="User Added/Update Successfully";
+                    this.submitModalPopup();
                     this.getUserDetails();
                     this.screenLoader = false;
                 } else {
+                    this.modalHeading="Failure";
+                    this.modalBody="Sorry ! Unable to add/update the user";
+                    this.submitModalPopup();
                     this.screenLoader = false;
                     this.displayError = true;
                 }
@@ -93,9 +102,15 @@ export class UserComponent implements OnInit {
         this.projectManagerService.updateUser(this.inputParam).subscribe(
             (data: any) => {
                 if(null != data && undefined != data && null !== data.status && undefined !== data.status && 'Success' === data.status) {
+                    this.modalHeading="Success";
+                    this.modalBody="User Deleted SuccessFully";
+                    this.submitModalPopup();
                     this.getUserDetails();
                     this.screenLoader = false;
                 } else {
+                    this.modalHeading="Failure";
+                     this.modalBody="Sorry ! Unable to delete the user";
+                    this.submitModalPopup();
                     this.screenLoader = false;
                     this.displayError = true;
                 }
@@ -108,6 +123,11 @@ export class UserComponent implements OnInit {
         this.user = {};
         this.reset();
         this.router.navigate(['/']);
+    }
+    
+     submitModalPopup(){
+      console.log("submitModalPopup");
+        jQuery("#submitModalWindowOpener").click();
     }
 
     reset() {

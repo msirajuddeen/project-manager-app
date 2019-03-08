@@ -27,6 +27,8 @@ export class AddTaskComponent implements OnInit {
     endDt: any;
     minDate: Date = new Date();
     errorReason:string ="Please check back-end connectivity!!!";
+    modalHeading: string;
+    modalBody: string;
     @ViewChild('addTaskForm') addTaskForm: NgForm;
 
     constructor (public projectManagerService: ProjectManagerService, public router: Router, private datepipe: DatePipe) {
@@ -113,14 +115,21 @@ export class AddTaskComponent implements OnInit {
                 this.projectManagerService.updateParentTask(this.inputParam).subscribe(
                     (data: any) => {
                         if(null != data && undefined != data && null !== data.status && undefined !== data.status && 'Success' === data.status) {
+                            this.modalHeading="Success";
+                            this.modalBody="Parent Task Added SuccessFully";
+                            this.submitModalPopup();
                             this.reset();
                             this.getUserDetails();
                             this.getProjectDetails();
                             this.getParentTaskDetails();
                             this.screenLoader = false;
                         } else {
+                            this.modalHeading="Failure";
+                            this.modalBody="Sorry ! Unable to add the parent task";
+                            this.submitModalPopup();
+                            
                             this.screenLoader = false;
-                            this.displayError = true;
+                            //this.displayError = true;
                         }
                     },
                     (err: any) => {
@@ -143,12 +152,18 @@ export class AddTaskComponent implements OnInit {
                 this.projectManagerService.updateTask(this.inputParam).subscribe(
                     (data: any) => {
                         if(null != data && undefined != data && null !== data.status && undefined !== data.status && 'Success' === data.status) {
+                            this.modalHeading="Success";
+                            this.modalBody="Task Added SuccessFully";
+                            this.submitModalPopup();
                             this.reset();
                             this.getUserDetails();
                             this.getProjectDetails();
                             this.getParentTaskDetails();
                             this.screenLoader = false;
                         } else {
+                            this.modalHeading="Failure";
+                            this.modalBody="Sorry ! Unable to add the parent task";
+                            this.submitModalPopup();
                             this.screenLoader = false;
                             this.displayError = true;
                         }
@@ -208,6 +223,10 @@ export class AddTaskComponent implements OnInit {
         this.addTaskForm.controls['taskName'].markAsUntouched();
     }
 
+    submitModalPopup(){
+      console.log("submitModalPopup");
+        jQuery("#submitModalWindowOpener").click();
+    }
     getProject() {
         jQuery("#searchProjectPopupOpener").click();
     }

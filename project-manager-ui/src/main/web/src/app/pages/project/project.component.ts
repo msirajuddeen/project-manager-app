@@ -29,6 +29,8 @@ project: any = {};
     fieldName: string = '';
     minDate: Date = new Date();
     errorReason:string ="Please check back-end connectivity!!!";
+    modalHeading: string;
+    modalBody: string;
     @ViewChild('addProjectForm') addProjectForm: NgForm;
 
     constructor(public projectManagerService: ProjectManagerService, public router: Router, private datepipe: DatePipe) {
@@ -102,10 +104,16 @@ project: any = {};
             this.projectManagerService.updateProject(this.inputParam).subscribe(
                 (data: any) => {
                     if(null != data && undefined != data && null !== data.status && undefined !== data.status && 'Success' === data.status) {
+                        this.modalHeading="Success";
+                        this.modalBody="Project Added/Updated SuccessFully";
+                        this.submitModalPopup();
                         this.getProjectDetails();
                         this.getUserDetails();
                         this.screenLoader = false;
                     } else {
+                        this.modalHeading="Failure";
+                        this.modalBody="Sorry ! Unable to add/update the project";
+                        this.submitModalPopup();
                         this.screenLoader = false;
                         this.displayError = true;
                     }
@@ -146,10 +154,16 @@ project: any = {};
         this.projectManagerService.updateProject(this.inputParam).subscribe(
             (data: any) => {
                 if(null != data && undefined != data && null !== data.status && undefined !== data.status && 'Success' === data.status) {
+                    this.modalHeading="Success";
+                    this.modalBody="Project deleted SuccessFully";
+                    this.submitModalPopup();
                     this.getProjectDetails();
                     this.getUserDetails();
                     this.screenLoader = false;
                 } else {
+                    this.modalHeading="Failure";
+                    this.modalBody="Sorry ! Unable to delete the project";
+                    this.submitModalPopup();
                     this.screenLoader = false;
                     this.displayError = true;
                 }
@@ -194,6 +208,10 @@ project: any = {};
                 return this.isError;
             }
         }
+    }
+    
+    submitModalPopup(){
+        jQuery("#submitModalWindowOpener").click();
     }
 
     getManager() {

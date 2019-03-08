@@ -130,11 +130,27 @@
 			</ul>
 		</div>
 		<div class="col-md-2 col-sm-12 col-xs-12"></div>
+		<button data-toggle="modal" data-target="#submitModalWindow" id='submitModalWindowOpener' [hidden]='true'>Open Modal</button>
 	</div>
 </div>
 
 <div [hidden]='!displayError'>
 	<div class="row margin-top-30">
 		<p class="error-msg text-align-center">{{errorReason}}</p>
+	</div>
+</div>
+<div id="submitModalWindow" class="modal" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				{{modalHeading}}
+			</div>
+			<div class="modal-body">
+				{{modalBody}}
+			</div>
+			<div class="modal-footer">
+				<button type="button" id='setUser' class="btn btn-primary" data-dismiss="modal">Close</button>
+			</div>
+		</div>
 	</div>
 </div>

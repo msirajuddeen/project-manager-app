@@ -112,7 +112,7 @@
 		</div>
 		
 	</form>
-	
+	<button data-toggle="modal" data-target="#submitModalWindow" id='submitModalWindowOpener' [hidden]='true'>Open Modal</button>
 	<button data-toggle="modal" data-target="#searchProjectModalWindow" id='searchProjectPopupOpener' [hidden]='true'>Open Modal</button>
 	<button data-toggle="modal" data-target="#searchParentTaskModalWindow" id='searchParentTaskPopupOpener' [hidden]='true'>Open Modal</button>
 	<button data-toggle="modal" data-target="#searchUserModalWindow" id='searchUserPopupOpener' [hidden]='true'>Open Modal</button>
@@ -178,6 +178,23 @@
 					</li>
 					
 				</ul>
+			</div>
+			<div class="modal-footer">
+				<button type="button" id='setUser' class="btn btn-primary" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="submitModalWindow" class="modal" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				{{modalHeading}}
+			</div>
+			<div class="modal-body">
+				{{modalBody}}
 			</div>
 			<div class="modal-footer">
 				<button type="button" id='setUser' class="btn btn-primary" data-dismiss="modal">Close</button>
