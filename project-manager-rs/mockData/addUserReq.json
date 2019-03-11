@@ -1,9 +1,9 @@
 {
 	"action" : "ADD",
 	"userVO" : {
-		"fname" : "Mohan",
-		"lname" : "A",
-		"empId" : "98765",
+		"fname" : "Siraj",
+		"lname" : "M",
+		"empId" : "428398",
 		"status" : "A"
 	}
 }
