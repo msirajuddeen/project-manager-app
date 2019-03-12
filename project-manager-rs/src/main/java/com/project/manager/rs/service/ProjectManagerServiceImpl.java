@@ -334,7 +334,7 @@ public class ProjectManagerServiceImpl implements ProjectManagerService, Project
 		return flag;
 	}
 
-	private boolean deleteProject(int userId) throws ProjectManagerException {
+	/*private boolean deleteProject(int userId) throws ProjectManagerException {
 		boolean flag = false;
 		try {
 			projectRepository.deleteByUserId(userId);
@@ -343,7 +343,7 @@ public class ProjectManagerServiceImpl implements ProjectManagerService, Project
 			throw new ProjectManagerException(TECH_ERROR_CODE, TECH_ERROR_MESSAGE, STATUS_500);
 		}
 		return flag;
-	}
+	}*/
 
 
 }
